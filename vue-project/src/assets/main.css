@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Bowlby One';
+  src: url('./BowlbyOne.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DmSans';
+  src: url('./DMSans.ttf') format('truetype');
+  font-style: normal;
+}
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  font-family: 'Bowlby One';
+}
