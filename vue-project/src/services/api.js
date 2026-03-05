@@ -2,7 +2,7 @@ import axios from "axios"
 import { useAuthStore } from "@/stores/authStore"
 
 const api = axios.create({
-    baseURL: "http://ogaplattercore-29f4b3ccab3c.herokuapp.com/api",
+    baseURL: "https://ogaplattercore-29f4b3ccab3c.herokuapp.com/api",
     timeout: 10000,
     headers: {
         "Content-Type": "application/json"

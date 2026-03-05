@@ -142,6 +142,8 @@
 <style scoped>
     .header{
         background-color: #ffd;
+        width: 100vw;
+        padding: 0 30px;
     }
     .subContainer, .links, .contact {
         display: flex;

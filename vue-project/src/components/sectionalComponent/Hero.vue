@@ -24,7 +24,7 @@
 <style scoped>
     .container {
         background:#FFFEE5;
-        padding: 10px 50px;
+        /* padding: 10px 50px; */
         padding-top: 0;
     }
 
@@ -32,8 +32,9 @@
         /* margin-top: 0; */
         position: fixed;
         background-color: #FFFEE5;
-        width: 90%;
+        width: 100vw;
         z-index: 2;
+        margin: 0 auto;
     }
 
     .hero {

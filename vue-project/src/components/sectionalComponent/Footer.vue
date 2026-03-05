@@ -8,7 +8,7 @@
                     <p>Front of Fotek event Center <br /> Along Akala Express</p>
 
                     <h3>Phone No:</h3>
-                    <p>+234 xxx xxx xxxx</p>
+                    <p>+234 70530 00005</p>
                 </div>
 
                 <div class="links">
