@@ -7,7 +7,7 @@
 So we focused on doing the simple things right ; real ingredients, proper preparation, and food that actually satisfies.</p>
             </div>
             <div class="image one">
-                <img src="@/assets/Container Image.png" />
+                <img :src="containerImage" />
             </div>
         </div>
         <div class="container1 rowRev">
@@ -25,7 +25,7 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
             
             <div class="subContainer">
                 <div class="image two">
-                    <img src="@/assets/Rectangle 51.jpg" />
+                    <img :src="cookImage" />
                 </div>
                 
             </div>
@@ -113,5 +113,10 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
         margin-left: -8px;
     }
 </style>
+
+<script setup>
+    import containerImage from '@/assets/containerImage.png';
+    import cookImage from '@/assets/rectangle51.jpg'
+</script>
 
 

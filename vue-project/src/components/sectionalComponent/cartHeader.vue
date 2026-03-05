@@ -23,6 +23,6 @@
 </style>
 
 <script setup>
-    import backIcon from '@/assets/Back Icon.png'
+    import backIcon from '@/assets/backIcon.png'
 
 </script>
