@@ -13,7 +13,10 @@
             </div>
             <div class="dropDownContainer">
                 <p>{{ items.name }} </p>
-                <div class="dropDown" v-if="items.variants?.length" @click="toggleDropdown(index)"></div>
+                <div class="dropDown" v-if="items.variants?.length">Type
+                    <div class="dropDownArrow"  @click="toggleDropdown(index)"></div>
+                </div>
+                
             </div>
             
             <p>₦{{ items.price }}</p>
@@ -32,22 +35,42 @@
 </template>
 
 <style scoped>
+
     .clicker {
         background-color: #000;
+    }
+    .clicker:hover {
+        cursor: pointer;
+    }
+    .clicker p {
+        color: white;
+    }
+    .clicker p:active {
+        color: #ffbb00;
     }
     .dropDownContainer {
         display: flex;
     }
     .dropDown {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        height: auto;
+        background-color: white;
+        border-radius: 5px;
+        padding: 0 5px;
+
+    }
+    .dropDownArrow {
         height: 10px;
         width: 10px;
-        margin: auto;
+        display: inline-block;
+        animation: oscillate ease-in-out 1s infinite;
         border: 3px solid black;
+        rotate: 45deg; 
         border-top: transparent;
         border-left: transparent;
-        transform: rotate(45deg);
-        /* display: inline; */
-        margin-left: 40px;
     }
     h2 {
         text-align: center;
@@ -79,7 +102,7 @@
         margin: 0 20px;
         margin-bottom: 10px;
         padding: 20px 20px;
-        border-radius: 5px;
+        border-radius: 10px;
     }
 
     /* HTML: <div class="loader"></div> */
@@ -114,9 +137,9 @@
 
     .imageContainer {
         width: 90%;
-        height: 50%;
+        height: auto;
         margin: auto;
-        border-radius: 5px;
+        border-radius: 10px;
     }
     img {
         object-fit:contain;
@@ -127,11 +150,12 @@
     p{
         margin: 5px;
         margin-left: 10px;
+        font-family: 'DmSans';
+        font-weight: 600;
+        font-size: 20px;
 
     }
-    p:last-of-type{
-        color: white;
-    }
+    
 
     button {
         width: 90%;
@@ -147,6 +171,17 @@
     button:hover {
         box-shadow: 0 0 10px #000;
         cursor: pointer;
+    }
+
+    @keyframes oscillate {
+        from {
+            transform: translateX(-5px);
+
+        }
+        to {
+            transform: translateY(5px);
+
+        }
     }
 
 </style>
@@ -186,21 +221,4 @@
 const toggleDropdown = (index) => {
   openItemId.value = openItemId.value === index ? null : index
 }
-
-    
-
-    // const addToCart = (food) => {
-    //     const existingItem = cart.items.find(
-    //         item => String(item.id) === String(food.id)
-    //     )
-
-    //     if(existingItem) {
-    //         existingItem.quantity++
-    //     }else {
-    //         cart.items.push({
-    //             ...food,
-    //             quantity: 1
-    //         })
-    //     }
-    // }
 </script>

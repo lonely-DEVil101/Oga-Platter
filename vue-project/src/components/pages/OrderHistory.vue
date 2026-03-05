@@ -32,23 +32,21 @@
       <div v-show="order.open" class="orderItems">
         <div v-for="item in order.items" :key="item.menuId" class="orderItem">
           <p v-if="item.variants?.length">{{ item.variants.variantName }}</p>
-        <p>{{ item.menuName }} × {{ item.quantity }}</p>
-        <p> {{ formatNaira(item.unitPrice * item.quantity) }}</p>
-    </div>
-    <br />
-    <hr>
-    <div>
-      <p class="total">Total</p>
-    <span>{{ formatNaira(order.total) }}</span>
-    </div>
+          <p v-else>{{ item.menuName }} × {{ item.quantity }}</p>
+          <p> {{ formatNaira(item.unitPrice * item.quantity) }}</p>
+        </div>
+        <div>
+          <p>Delivery <span>{{formatNaira(delivery)}}</span></p>
+        </div>
+        <br />
+        <hr>
+        
+        <div>
+          <p class="total">Total</p>
+        <span>{{ formatNaira(order.total + delivery) }}</span>
+        </div>
     
       </div>
-      
-      
-      
-      
-
-      
     </div>
   </div>
 </template>
@@ -60,6 +58,7 @@ import orderImage from '@/components/icons/cartImage.png'
 
 const orderStore = useOrderStore()
 const { orders } = storeToRefs(orderStore)
+const delivery = 1200;
 console.log(orders)
 const toggleId = (id) => {
   orderStore.toggleFullId(id)
@@ -177,7 +176,7 @@ const formatDate = (date) =>
   hr {
     background-color: black;
     height: 1px;
-    border-color: black;
+    border-color: white;
   }
 
   .total {

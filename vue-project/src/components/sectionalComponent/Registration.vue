@@ -1,5 +1,5 @@
 <template>
-    <div class="superContainer">
+    <div @click.self="close" class="superContainer">
         <div class="container">
         <div class="tag">
             Confirm your order
@@ -10,6 +10,7 @@
             <label for="name">Enter your name</label>
             <input v-model="form.customerName" type="text" name="name" placeholder="NAME" required />
             <button :disabled="loading">{{ loading ? 'Registering...' : 'Checkout' }}</button>
+            <button @click="close" type="button" class="close">Close</button>
         </form>
     </div>
     </div>
@@ -75,6 +76,9 @@
         border-radius: 5px;
     }
 
+    .close {
+        margin-left: 20px;
+    }
 </style>
 
 <script setup>
@@ -127,6 +131,10 @@
             loading.value = false
         }
     }
+
+    const close = () => {
+        emit('close')    
+    } 
 
 
 </script>

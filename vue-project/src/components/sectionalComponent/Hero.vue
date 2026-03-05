@@ -53,6 +53,7 @@
         animation: topSlide ease-in-out 1s;
     }
     .boldText {
+        font-family: 'Bowlby One';
         line-height: 70px;
         margin-top: 80px;
     }

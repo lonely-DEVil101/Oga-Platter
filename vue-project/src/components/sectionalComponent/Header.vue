@@ -12,7 +12,7 @@
         <div class="contact">
             <p v-if="authStore.isLoggedIn" @click="scrollToSection('contact')">Contact</p>
             <p v-else @click="loginModal">Login</p>
-            <div>
+            <div v-if="authStore.isLoggedIn">
                 <img @click="toggleDropdown" :src=accountButton />
             </div>
             <div>

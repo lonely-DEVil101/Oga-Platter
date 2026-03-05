@@ -34,6 +34,11 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
 </template>
 
 <style scoped>
+    h2 {
+        font-family: 'Bowlby One';
+        font-weight: 400;
+        font-size: 45px;
+    }
     .container1 {
         display: flex;
         justify-content: space-between;
