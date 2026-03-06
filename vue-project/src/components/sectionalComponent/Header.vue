@@ -15,9 +15,12 @@
             <div v-if="authStore.isLoggedIn">
                 <img @click="toggleDropdown" :src=accountButton />
             </div>
-            <div>
+            <div class="cartButton">
                 <router-link to="/cart">
                     <img :src=cartButton />
+                    <span v-if="cartStore.cartCount > 0" class="badge">
+                        {{cartStore.cartCount}}
+                    </span>
                 </router-link>
             </div>
         </div>
@@ -68,11 +71,13 @@
     import {ref, onMounted, onBeforeMount} from 'vue'
     import Login from './Login.vue'
     import Registration from './Registration.vue'
+    import { useCartStore } from '@/stores/cartStore'
 
     const { scrollToSection } = useScroll()
     const authStore = useAuthStore()
     const router = useRouter()
     const { customer } = storeToRefs(authStore)
+    const cartStore = useCartStore()
     const showLogin= ref(false)
     const showRegistration = ref(false)
 
@@ -168,7 +173,19 @@
         margin: 10px;
     }
 
-
+    .cartButton {
+        position: relative;
+    }
+    .badge {
+  position: absolute;
+  top: -6px;
+  right: 10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
 
     img{
         object-fit: cover;

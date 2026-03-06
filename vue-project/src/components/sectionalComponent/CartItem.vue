@@ -278,14 +278,15 @@ const sendWhatsApp = async (order) => {
 
   const orderMessage = await order.message;
 
-  const totalText = `Total: ${order.totalAmount}`;
+  const orderNumber = `Order Id: ${order.orderId}`
+  const totalText = `Total: ${order.totalAmount + delivery}`;
   const statusText = `Status: ${order.status}`;
 
-  const message = `${orderMessage}\n${totalText}\n${statusText}`;
+  const message = `${orderMessage}\n${totalText}\n${statusText}\n${orderNumber}`;
 
   const encodedMessage = encodeURIComponent(message);
 
-  const phoneNumber = '+2349121983470'; // Replace with actual number
+  const phoneNumber = '+2347053000005'; // Replace with actual number
   console.log("message Sent")
 
   window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');

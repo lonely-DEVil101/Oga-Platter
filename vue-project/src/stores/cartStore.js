@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useAuthStore } from './authStore'
 import { stringifyQuery } from 'vue-router'
 
@@ -8,6 +8,10 @@ export const useCartStore = defineStore('cart', () => {
   const cart = ref([])
   const authStore = useAuthStore()
 
+
+  const cartCount = computed(() => {
+    return cart.value.reduce((sum, item) => sum + item.quantity, 0)
+  })
   // LOAD CART FOR CURRENT USER
   function loadCart() {
     // const customer = authStore.customer
@@ -108,6 +112,7 @@ export const useCartStore = defineStore('cart', () => {
     cart,
     loadCart,
     addToCart,
+    cartCount,
     reduceQuantity,
     increaseQuantity,
     clearCart
