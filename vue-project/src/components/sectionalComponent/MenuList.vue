@@ -13,8 +13,8 @@
             </div>
             <div class="dropDownContainer">
                 <p>{{ items.name }} </p>
-                <div class="dropDown" v-if="items.variants?.length">Type
-                    <div class="dropDownArrow"  @click="toggleDropdown(index)"></div>
+                <div class="dropDown" v-if="items.variants?.length" @click="toggleDropdown(index)">Type
+                    <div class="dropDownArrow"  ></div>
                 </div>
                 
             </div>
@@ -61,6 +61,9 @@
         border-radius: 5px;
         padding: 0 5px;
 
+    }
+    .dropDown:hover {
+        cursor: pointer;        
     }
     .dropDownArrow {
         height: 10px;
