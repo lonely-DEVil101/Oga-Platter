@@ -32,7 +32,7 @@
         /* margin-top: 0; */
         position: fixed;
         background-color: #FFFEE5;
-        width: 100vw;
+        width: 100%;
         z-index: 2;
         margin: 0 auto;
     }
@@ -74,7 +74,7 @@
         animation: appear ease-in-out 1s;
     }
     .hero img {
-        object-fit: fill;
+        object-fit: contain;
         width: 100%;
         height: 100%;
     }
@@ -109,6 +109,82 @@
             opacity: 1;
         }
     }
+
+    /* Tablet */
+@media (max-width: 1024px) {
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text {
+    width: 80%;
+    font-size: 48px;
+    margin: 0 auto;
+  }
+
+  .boldText {
+    margin-top: 40px;
+  }
+
+  .heroImage {
+    width: 400px;
+    height: 400px;
+  }
+
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .text {
+    width: 90%;
+    font-size: 36px;
+    margin: 0 auto;
+  }
+
+  .boldText {
+    line-height: 45px;
+  }
+
+  .text p {
+    font-size: 14px;
+  }
+
+  .heroImage {
+    width: 300px;
+    height: 300px;
+  }
+
+}
+
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .text {
+    font-size: 28px;
+  }
+
+  .boldText {
+    line-height: 35px;
+  }
+
+  .heroImage {
+    width: 250px;
+    height: 250px;
+  }
+
+}
 </style>
 
 <script setup>

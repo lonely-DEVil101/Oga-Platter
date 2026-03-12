@@ -1,6 +1,12 @@
 <template>
     <div class="header">
         <div class="subContainer">
+            <!-- Add this inside subContainer, preferably before .links -->
+            <div class="hamburger" @click="toggleMobileMenu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         <div class="links">
             <p @click="scrollToSection('home')">Home</p>
             <p @click="scrollToSection('menu')">Menu</p>
@@ -24,6 +30,13 @@
                 </router-link>
             </div>
         </div>
+        </div>
+        <div v-if="showMobileMenu" ref="mobileMenuRef" class="mobile-menu">
+            <p @click="scrollToSection('home'); toggleMobileMenu()">Home</p>
+            <p @click="scrollToSection('menu'); toggleMobileMenu()">Menu</p>
+            <p @click="scrollToSection('about'); toggleMobileMenu()">About</p>
+            <p v-if="!authStore.isLoggedIn" @click="loginModal; toggleMobileMenu()">Login</p>
+            <p v-else @click="scrollToSection('contact'); toggleMobileMenu()">Contact</p>
         </div>
         <!-- <div class="welcomeDiv">
             <div v-if="authStore.isLoggedIn">
@@ -51,12 +64,14 @@
         v-if="showRegistration"
         @close = "showRegistration = false"
         @success="handleRegistrationSuccess" ><button @click="showRegistration = false">Close</button></Registration>
-        <Login
-        v-if="showLogin"
-        @close="showLogin = false"
-        @register = openRegistration
-        @success="handleLoginSuccess"
-        />
+        <div v-if="showLogin">
+            <Login
+            v-if="showLogin"
+            @close="showLogin = false"
+            @register = openRegistration
+            @success="handleLoginSuccess"
+            />
+        </div>
     </div>
 </template>
 
@@ -68,7 +83,7 @@
     import { useAuthStore } from '@/stores/authStore'
     import { useRouter } from 'vue-router'
     import { storeToRefs } from 'pinia'
-    import {ref, onMounted, onBeforeMount} from 'vue'
+    import {ref, onMounted, onUnmounted} from 'vue'
     import Login from './Login.vue'
     import Registration from './Registration.vue'
     import { useCartStore } from '@/stores/cartStore'
@@ -76,10 +91,19 @@
     const { scrollToSection } = useScroll()
     const authStore = useAuthStore()
     const router = useRouter()
-    const { customer } = storeToRefs(authStore)
     const cartStore = useCartStore()
     const showLogin= ref(false)
     const showRegistration = ref(false)
+
+    const showMobileMenu = ref(false)
+    const mobileMenuRef = ref(null)
+    const loginModalRef = ref(null)
+
+    
+
+    const toggleMobileMenu = () => {
+        showMobileMenu.value = !showMobileMenu.value
+    }
 
     const showDropdown = ref(false)
     const dropdownRef = ref(null)
@@ -103,13 +127,19 @@
         if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
             showDropdown.value = false
         }
+        if (mobileMenuRef.value && !mobileMenuRef.value.contains(event.target) && !event.target.closest('.hamburger')) {
+        showMobileMenu.value = false
+        }
+        if (loginModalRef.value && !loginModalRef.value.contains(event.target)) {
+            showLogin.value = false
+        }
     }
 
     onMounted(() => {
         document.addEventListener('click', handleClickOutside)
     })
 
-    onBeforeMount(() => {
+    onUnmounted(() => {
         document.removeEventListener('click', handleClickOutside)
     })
 
@@ -145,6 +175,42 @@
 </script>
 
 <style scoped>
+
+/* Hamburger button */
+.hamburger {
+  display: none; /* visible only on mobile */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  border-radius: 2px;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: absolute;
+  top: 70px; /* below header */
+  left: 0;
+  width: 100%;
+  background-color: #ffd;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.mobile-menu p {
+  font-size: 18px;
+  cursor: pointer;
+}
     .header{
         background-color: #ffd;
         width: 100vw;
@@ -200,7 +266,6 @@
     .contact p{
         background-color: black;
         color: white;
-        width: 7vw;
         border-radius: 5px;
         text-align: center;
         padding: 5px 0;
@@ -255,4 +320,28 @@
 .dropdown button:hover {
   background: #fffdd0;
 }
-    </style>
+
+
+
+@media (max-width: 768px){
+  .links {
+    display: none; /* hide desktop links */
+  }
+
+  .hamburger {
+    display: flex; /* show hamburger */
+  }
+
+  .contact {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact p {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
+</style>

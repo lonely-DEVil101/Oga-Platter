@@ -45,7 +45,9 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
         margin-bottom: 100px;
         padding:20px 60px;
         height: auto;
-        gap: 100px;
+        gap: 60px;
+        align-items: center;
+        flex-wrap: wrap;
     }
     .row {
         flex-direction: row;
@@ -65,21 +67,21 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
     .text {
         display: flex;
         flex-direction: column;
-        width: 40vw;
+        width: 100%;
+        max-width: 500px;
         justify-content: center;
     }
 
     /*image styling*/
     .image {
-        /* width:600px;
-        height: 500px; */
-        width: 40vw;
-        height: 60vh;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
     }
     img {
-        object-fit: fill;
+        object-fit: cover;
         width: 100%;
-        height: 100%;
+        height: auto;
     }
     .one {
         transform : rotate(-5deg);
@@ -101,7 +103,7 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
     }
     .customerImage {
         display: flex;
-        width: 50%;        
+        width: auto;        
         margin-left: 30px;
 
     }
@@ -112,6 +114,63 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
         background-color: grey;
         margin-left: -8px;
     }
+
+@media (max-width: 1024px) {
+
+    .container1 {
+    padding: 20px 40px;
+    gap: 40px;
+    }
+
+    h2 {
+    font-size: 36px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .container1 {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    }
+
+    .rowRev {
+    flex-direction: column;
+    }
+
+    .text {
+    align-items: center;
+    }
+
+    h2 {
+    font-size: 30px;
+    }
+
+    .customerDiv {
+    justify-content: center;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    h2 {
+    font-size: 26px;
+    }
+
+    p {
+    font-size: 14px;
+    }
+
+    .customerDiv {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    }
+
+}
 </style>
 
 <script setup>

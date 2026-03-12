@@ -179,6 +179,48 @@
         border-radius: 5px;
         font-weight: 500;
     }
+
+/* @media (max-width: 768px) {
+  .tableHeaderGroup {
+    display: none; /* hide header row on mobile 
+  
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .item div,
+  .item .quantity,
+  .item .subtotal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .quantity {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .foodImage {
+    width: 60px;
+    height: 60px;
+  }
+
+  .subTotalContainer {
+    padding: 15px;
+    margin: 10px 0;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+} */
 </style>
 
 <script setup>

@@ -21,12 +21,15 @@
                 <div class="goodToKnow">
                     <h3>Good to Know</h3>
                     <div  class="section" v-for="(section, index) in goodToKnow">
-                        {{ section.question }}
-                        <div style="display: inline;" >
-                            <a style="float: right;" @click="toggle(index)">
-                                <img :src="section.open ? minusImage: addImage"/>
-                            </a>
+                        <div class="sectionQuestion">
+                            {{ section.question }}
+                            <div style="display: inline;" >
+                                <a style="float: right;" @click="toggle(index)">
+                                    <img :src="section.open ? minusImage: addImage"/>
+                                </a>
+                            </div>
                         </div>
+                        
 
                         <div style="font-family: 'DmSans'; color: white" v-if="section.open">
                             {{ section.answer }}
@@ -77,7 +80,7 @@ import { reactive } from 'vue'
 
     .container {
         background-color: #fffdd0;
-        padding: 35px 60px;
+        padding: 35px 40px;
     }
     .subContainer {
         background-color: #fb0;
@@ -87,11 +90,10 @@ import { reactive } from 'vue'
     }
     .footer {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
         color: #4d231f;
-        padding: 0px 20px;
-
+         padding: 20px;
     }
     .section {
         background-color: #4d231f; 
@@ -99,6 +101,12 @@ import { reactive } from 'vue'
         color: white;
         padding: 20px;
         border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .sectionQuestion {
+        display: flex;
+        justify-content: space-between;
     }
 
     h3{
@@ -123,14 +131,32 @@ import { reactive } from 'vue'
     }
 
     .footerText  {
+        display: block;
         position: relative;
-        bottom: -20px;
-        width: 100%;
+        bottom: -15px;
+        width: 100vw;
         color: #fffdd0;
         margin: -5px;
-        font-size: 151px;
+        font-size: clamp(50px, 10vw, 151px);
         font-family: 'Bowlby One';
-        line-height: 130px
+        line-height: 1;
+        letter-spacing: 3px;
     }
+
+@media (max-width: 768px) {
+
+    .container {
+    padding: 30px 20px;
+    }
+
+    .footer {
+    text-align: center;
+    }
+
+    .section {
+    padding: 15px;
+    }
+
+}
 </style>
   

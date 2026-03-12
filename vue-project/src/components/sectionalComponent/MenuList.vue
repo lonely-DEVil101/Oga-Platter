@@ -55,13 +55,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 50%;
+        width: 100%;
         height: auto;
         background-color: white;
         border-radius: 5px;
         padding: 0 5px;
 
-    }
+    } 
     .dropDown:hover {
         cursor: pointer;        
     }
@@ -92,13 +92,23 @@
         height: auto;
     }
 
-    .menu {
-        display: flex;
+    /* .menu {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
         margin: 40px 50px;
-
-    }
+    } */
+    .menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 40px 50px;
+}
     .menuItems {
-        width: 20%;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+        width: 100%;
         min-height: 200px;
         height: auto;
         background: #FFA500;
@@ -139,13 +149,13 @@
     }
 
     .imageContainer {
-        width: 90%;
-        height: auto;
+        width: 100%;
+        height: 180px;
         margin: auto;
         border-radius: 10px;
     }
     img {
-        object-fit:contain;
+        object-fit:cover;
         width: 100%;
         height: 100%;
     }
@@ -161,8 +171,9 @@
     
 
     button {
-        width: 90%;
-        margin: 40px 10px;
+        width: 100%;
+        display: block;
+        margin: 20px auto;
         padding: 10px 0;
         background: black;
         color: white;
@@ -185,6 +196,32 @@
             transform: translateY(5px);
 
         }
+    }
+
+    @media (max-width: 1024px) {
+
+        .menu {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 30px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+
+        .menu {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 20px;
+        }
+
+    }
+
+    @media (max-width: 480px) {
+
+        .menu {
+        grid-template-columns: 1fr;
+        }
+
     }
 
 </style>
