@@ -38,15 +38,7 @@
             <p v-if="!authStore.isLoggedIn" @click="loginModal; toggleMobileMenu()">Login</p>
             <p v-else @click="scrollToSection('contact'); toggleMobileMenu()">Contact</p>
         </div>
-        <!-- <div class="welcomeDiv">
-            <div v-if="authStore.isLoggedIn">
-                Welcome {{ customer.customerName }}
-            </div>
-            <div v-else>
-                Guest
-            </div>
-            <button @click="authStore.logout">logout</button>
-        </div> -->
+        
         <div v-if="showDropdown" class="dropdown">
       <div class="customer-name">
         {{ authStore.customer?.customerName }}
@@ -213,7 +205,7 @@
 }
     .header{
         background-color: #ffd;
-        width: 100vw;
+        width: 100%;
         padding: 0 30px;
     }
     .subContainer, .links, .contact {

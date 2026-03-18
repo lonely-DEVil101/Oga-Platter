@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <div id="about" class="container1 row">
+        <div class="container1 row">
             <div class="text">
                 <h2>More Than Food</h2>
-                <p>We started this brand because good food shouldn’t be stressful. Too often, meals are rushed, forgettable, or just not worth it.
+                <p>We started this brand because good food shouldn’t be stressful. Too often, meals are rushed, forgettable, or just not worth it. <br/>
 So we focused on doing the simple things right ; real ingredients, proper preparation, and food that actually satisfies.</p>
             </div>
             <div class="image one">
@@ -13,13 +13,13 @@ So we focused on doing the simple things right ; real ingredients, proper prepar
         <div class="container1 rowRev">
             <div class="text">
                 <h2>Food that gets you</h2>
-                <p>Busy days, late nights, quick breaks ; we get it. Sometimes you just want food that fits your schedule without cutting corners.
-That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenever hunger shows up.</p>
+                <p>Busy days, late nights, quick breaks ; we get it. Sometimes you just want food that fits your schedule without cutting corners. <br/>
+That's why our meals are made to be fast, satisfying, and easy to enjoy whenever hunger shows up...</p>
 <div class="customerDiv">
                     <div class="customerImage">
                         <div class="customers" v-for="i in 4" :key="i"></div>
                     </div>                    
-                    <div class="customerText">Trusted by over 1000 customers</div>
+                    <div>Trusted by over 1000 customers</div>
                 </div>
             </div>
             
@@ -41,13 +41,14 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
     }
     .container1 {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         margin-bottom: 100px;
         padding:20px 60px;
         height: auto;
         gap: 60px;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
     .row {
         flex-direction: row;
@@ -71,10 +72,13 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
         max-width: 500px;
         justify-content: center;
     }
+    .text p{
+        line-height: 3ch;
+    }
 
     /*image styling*/
     .image {
-        width: 100%;
+        width: auto;
         max-width: 500px;
         height: auto;
     }
@@ -131,7 +135,7 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy ; whenev
 @media (max-width: 768px) {
 
     .container1 {
-    flex-direction: column;
+    /* flex-direction: column; */
     text-align: center;
     padding: 20px;
     }

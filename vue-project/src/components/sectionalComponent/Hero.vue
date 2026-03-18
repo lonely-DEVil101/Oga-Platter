@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <Header class="header"></Header>
-        <div class="hero" id="home">
+        <div class="hero">
             <div class="text">
                 <div class="boldText">
                     Grilled. <br/>
@@ -9,7 +9,7 @@
                     Done the <br />
                     Oga way. <br/>
                 </div>                
-                <p>Fresh grilled fish, shawarma, <br />barbeque & asun made the Oga way</p>
+                <p>Freshly grilled fish, shawarma, <br />barbeque & asun made the Oga way</p>
                 <button @click="scrollToSection('menu')">View Menu</button>
             </div>
             <div class="heroImage">
@@ -23,16 +23,18 @@
 
 <style scoped>
     .container {
+        box-sizing:border-box;
         background:#FFFEE5;
         /* padding: 10px 50px; */
-        padding-top: 0;
+        padding: 0 auto;
     }
 
     .header {
         /* margin-top: 0; */
         position: fixed;
         background-color: #FFFEE5;
-        width: 100%;
+        width: 100vw;
+        overflow-x: hidden;
         z-index: 2;
         margin: 0 auto;
     }
@@ -42,6 +44,8 @@
         /* justify-content: space-between; */
         padding-top: 100px;
         gap: 20px;
+        align-items: center;
+        justify-content: center;
     }
 
     /*text styling*/

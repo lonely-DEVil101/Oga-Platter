@@ -20,18 +20,23 @@
                         <div style="margin-left: 20px " v-if="!item.variantId">{{ item.name }}</div>
                         <div style="margin-left: 20px " v-else>{{ item.variantName }}</div>
                     </div>
-                    <div>{{ formatNaira(item.price) }}</div>
+                    <div class="mobileOnly">
+                        <p class="price">Price</p>
+                        <p>{{ formatNaira(item.price) }}</p>
+                        
+                        </div>
                     <div class="quantity" >
-                        <span class="icons" @click="reduceQuantity(item)">
+                        <span class="icons left" @click="reduceQuantity(item)">
                             <img :src="minusIcon" />
                         </span>
                         <input type="number" v-model="item.quantity" min="1" name="quantity" />
-                        <span class="icons" @click="increaseQuantity(item)">
+                        <span class="icons right" @click="increaseQuantity(item)">
                             <img :src="addIcon" />
                         </span>
                     </div>
-                    <div class="subtotal">
-                    {{formatNaira(subTotal(item))}}
+                    <div class="mobileOnly">
+                        <p class="subTotal">Subtotal</p>
+                    <p>{{formatNaira(subTotal(item))}}</p>
 
                     </div>
                 </div>
@@ -79,7 +84,7 @@
 .subTotalContainer {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin-left: 20px ;
     width: 100%;
     min-height: 60%;
     max-height: 500px;
@@ -142,7 +147,7 @@
         width: 50%;
         padding: 10px auto;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         border-radius: 5px;
     }
     input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button{
@@ -162,11 +167,19 @@
     .icons {
         width: 10px;
         height: 10px;
+        margin: 0 5px;
+    }
+    .icons .left{
+        float: left;
     }
     .icons img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    p.subTotal, p.price {
+        display: none;
     }
 
     button{
@@ -180,10 +193,53 @@
         font-weight: 500;
     }
 
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    .tableHeaderGroup {
+        display: none;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .item .quantity {
+        width: 100%;
+    }
+
+    .mobileOnly{ 
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+    }
+    p.subTotal, p.price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .subTotalContainer{
+        margin: auto;
+    }
+
+    
+}
+
 /* @media (max-width: 768px) {
   .tableHeaderGroup {
-    display: none; /* hide header row on mobile 
-  
+    display: none;  
+  }
 
   .item {
     display: flex;
@@ -220,7 +276,7 @@
     width: 100%;
     padding: 12px;
   }
-} */
+}  */
 </style>
 
 <script setup>
