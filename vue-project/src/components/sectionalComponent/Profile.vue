@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="profile-wrapper" ref="dropdownRef">
     <img 
       src="@/assets/profile.png" 
@@ -50,5 +50,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-    
-</style>
+   .profile-wrapper {
+    z-index: 100px;
+   } 
+</style> -->

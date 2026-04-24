@@ -18,7 +18,7 @@
         <div class="contact">
             <p v-if="authStore.isLoggedIn" @click="scrollToSection('contact')">Contact</p>
             <p v-else @click="loginModal">Login</p>
-            <div v-if="authStore.isLoggedIn">
+            <div v-if="authStore.isLoggedIn" class="profile">
                 <img @click="toggleDropdown" :src=accountButton />
             </div>
             <div class="cartButton">
@@ -39,7 +39,7 @@
             <p v-else @click="scrollToSection('contact'); toggleMobileMenu()">Contact</p>
         </div>
         
-        <div v-if="showDropdown" class="dropdown">
+    <div v-if="showDropdown" class="dropdown">
       <div class="customer-name">
         {{ authStore.customer?.customerName }}
       </div>
@@ -175,6 +175,7 @@
   gap: 5px;
   cursor: pointer;
   padding: 10px;
+
 }
 
 .hamburger div {
@@ -198,6 +199,8 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   z-index: 999;
 }
+
+
 
 .mobile-menu p {
   font-size: 18px;
@@ -267,10 +270,7 @@
         display: flex;
         justify-content: space-between;
     }
-    .profile-wrapper {
-  position: relative;
-  display: inline-block;
-}
+
 
 .profile-icon {
   width: 35px;
@@ -288,10 +288,10 @@
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   padding: 15px;
+  margin: 10px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 1000;
 }
 
 .customer-name {

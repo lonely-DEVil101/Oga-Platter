@@ -34,8 +34,6 @@
         position: fixed;
         background-color: #FFFEE5;
         width: 100vw;
-        overflow-x: hidden;
-        z-index: 2;
         margin: 0 auto;
     }
 
@@ -46,6 +44,7 @@
         gap: 20px;
         align-items: center;
         justify-content: center;
+        z-index: -1;
     }
 
     /*text styling*/
