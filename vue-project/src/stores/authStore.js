@@ -40,8 +40,8 @@ export const useAuthStore = defineStore('auth', () => {
   // LOGIN
   // -------------------------
   async function login(customerData) {
-    customer.value = customerData
-    token.value = customerData.token
+    customer.value = customerData;
+    token.value = customerData.token;
 
     // persist to localStorage
     localStorage.setItem('customer', JSON.stringify(customerData))

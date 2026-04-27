@@ -242,7 +242,7 @@
         try{
             menuItems.items = await getMenuItems()            
         } catch(err) {
-            error.value = err.message          ;
+            error.value = err.message;
             // console.log(err.response.statusText)
         }finally{
             loading.value = false;
@@ -253,7 +253,8 @@
     const cartStore = useCartStore()
     function add(item, variant = null) {
         cartStore.addToCart(item, variant)
-        console.log(item)
+        console.log(item);
+        console.log(cartStore.cart)
     }
 
     const openItemId = ref(null)

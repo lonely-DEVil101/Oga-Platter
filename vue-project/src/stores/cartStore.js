@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { useAuthStore } from './authStore'
-import { stringifyQuery } from 'vue-router'
 
 export const useCartStore = defineStore('cart', () => {
 
@@ -14,12 +13,6 @@ export const useCartStore = defineStore('cart', () => {
   })
   // LOAD CART FOR CURRENT USER
   function loadCart() {
-    // const customer = authStore.customer
-
-    // if (!customer) {
-    //   cart.value = []
-    //   return
-    // }
 
     const saved = localStorage.getItem(
       `ogaCart`
@@ -33,7 +26,7 @@ export const useCartStore = defineStore('cart', () => {
   function saveCart() {
     const customer = authStore.customer
 
-    // if (!customer) return
+    if (!customer) return
 
     localStorage.setItem(
       `ogaCart`,
@@ -51,7 +44,7 @@ export const useCartStore = defineStore('cart', () => {
       p => String(p.menuId) === String(item.menuId) && String(p.variantId) === String(variantId)
     )
 
-    if (existing) existing.quantity++
+    if (existing) existing.quantity++;
     else cart.value.push({   
       menuId: item.menuId,
       name: item.name,

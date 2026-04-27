@@ -236,47 +236,7 @@
     
 }
 
-/* @media (max-width: 768px) {
-  .tableHeaderGroup {
-    display: none;  
-  }
 
-  .item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 15px;
-  }
-
-  .item div,
-  .item .quantity,
-  .item .subtotal {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .quantity {
-    width: 100%;
-    justify-content: space-around;
-  }
-
-  .foodImage {
-    width: 60px;
-    height: 60px;
-  }
-
-  .subTotalContainer {
-    padding: 15px;
-    margin: 10px 0;
-  }
-
-  button {
-    width: 100%;
-    padding: 12px;
-  }
-}  */
 </style>
 
 <script setup>
@@ -406,11 +366,12 @@ const sendWhatsApp = async (order) => {
         cartStore.increaseQuantity(item)
     }
     const reduceQuantity = (item) => {
-        if(item.quantity > 1){
-            item.quantity--;
-        }else {
-            cartStore.reduceQuantity(item)
-        }
+        // if(item.quantity > 1){
+        //     item.quantity--;
+        // }else {
+        //     cartStore.reduceQuantity(item)
+        // }
+        cartStore.reduceQuantity(item)
     }
     
     
