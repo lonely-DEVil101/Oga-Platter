@@ -92,30 +92,25 @@
         height: auto;
     }
 
-    /* .menu {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        margin: 40px 50px;
-    } */
     .menu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  margin: 40px 50px;
+  padding: 40px 24px;
 }
+
     .menuItems {
         display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+        flex-direction: column;
+        justify-content: space-between;
         width: 100%;
         min-height: 200px;
         height: auto;
         background: #FFA500;
-        margin: 0 20px;
-        margin-bottom: 10px;
-        padding: 20px 20px;
+        margin: 0;
+        padding: 16px;
         border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.06);
     }
 
     /* HTML: <div class="loader"></div> */
@@ -153,11 +148,13 @@
         height: 180px;
         margin: auto;
         border-radius: 10px;
+        overflow: hidden;
     }
     img {
-        object-fit:cover;
+        object-fit: cover;
         width: 100%;
         height: 100%;
+        display: block;
     }
 
     p{
@@ -173,13 +170,14 @@
     button {
         width: 100%;
         display: block;
-        margin: 20px auto;
-        padding: 10px 0;
+        margin: 16px 0 0 0;
+        padding: 12px 0;
         background: black;
         color: white;
-        border-radius: 20px;
+        border-radius: 12px;
         border: none;
-
+        font-size: 16px;
+        touch-action: manipulation;
     }
 
     button:hover {
@@ -201,18 +199,22 @@
     @media (max-width: 1024px) {
 
         .menu {
-        grid-template-columns: repeat(3, 1fr);
-        margin: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 30px 20px;
         }
+
+        .menuItems { padding: 14px; }
 
     }
 
     @media (max-width: 768px) {
 
         .menu {
-        grid-template-columns: repeat(2, 1fr);
-        margin: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        padding: 20px;
         }
+
+        .menuItems { min-height: 220px; padding: 12px; }
 
     }
 
@@ -220,7 +222,18 @@
 
         .menu {
         grid-template-columns: 1fr;
+        padding: 16px;
         }
+
+        .menuItems {
+            min-height: auto;
+            padding: 12px;
+        }
+
+        .imageContainer { height: 140px; }
+
+        p { font-size: 16px; }
+        button { padding: 10px 0; font-size: 15px; }
 
     }
 

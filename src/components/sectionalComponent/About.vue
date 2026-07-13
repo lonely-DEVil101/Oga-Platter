@@ -134,11 +134,12 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy whenever
 }
 
 @media (max-width: 768px) {
-
     .container1 {
-    /* flex-direction: column; */
+    flex-direction: column;
     text-align: center;
     padding: 20px;
+    gap: 24px;
+    align-items: center;
     }
 
     .rowRev {
@@ -147,10 +148,23 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy whenever
 
     .text {
     align-items: center;
+    width: 100%;
+    max-width: 720px;
     }
 
     h2 {
     font-size: 30px;
+    }
+
+    .image {
+        max-width: 100%;
+        margin: 0 auto;
+        transform: none;
+    }
+
+    .one, .two {
+        transform: none;
+        margin-right: 0;
     }
 
     .customerDiv {
@@ -173,6 +187,17 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy whenever
     flex-direction: column;
     align-items: center;
     text-align: center;
+    }
+
+    .image {
+        width: 100%;
+        max-width: 360px;
+        margin: 12px auto;
+    }
+
+    .text p {
+        font-size: 15px;
+        line-height: 1.4;
     }
 
 }

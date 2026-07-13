@@ -21,7 +21,6 @@ body {
 
 /* Global container to keep content centered and responsive */
 .site-container, .container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
