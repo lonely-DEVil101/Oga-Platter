@@ -250,13 +250,14 @@
 
     img{
         object-fit: cover;
-        height: 10vh;
+        max-height: 48px;
+        width: auto;
     }
     .contact img{
-        width: 70%;
-        height: 70%;
-        margin-left: 10px;
-        margin-right: 10px;
+        max-height: 36px;
+        width: auto;
+        margin-left: 8px;
+        margin-right: 8px;
     }
     .contact p{
         background-color: black;

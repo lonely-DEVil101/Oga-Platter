@@ -38,6 +38,8 @@
         background-color: #f2f2f2;
         padding: 30px;
         border-radius: 5px;
+        width: 420px;
+        max-width: 94vw;
     }
     input {
         display: block;
@@ -64,6 +66,20 @@
         padding: 0 10px;
         border-radius: 5px;
     }
+
+@media (max-width: 480px) {
+    .loginCard {
+        padding: 18px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
     .logging {
         background-color: green;
         color: white

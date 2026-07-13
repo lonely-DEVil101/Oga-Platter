@@ -32,6 +32,8 @@
         background-color: white;
         box-shadow: 0 0 12.5px 0 grey;
         width: 50%;
+        max-width: 560px;
+        min-width: 280px;
         margin: 30px auto;
         display: flex;
         flex-direction: column;
@@ -79,6 +81,22 @@
     .close {
         margin-left: 20px;
     }
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 16px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .tag {
+        max-width: 100%;
+    }
+}
 </style>
 
 <script setup>

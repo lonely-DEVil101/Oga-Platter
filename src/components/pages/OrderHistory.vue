@@ -81,12 +81,24 @@ const formatDate = (date) =>
 </script>
 
 <style scoped>
-.container {
+  .container {
   font-family: 'DmSans';
   margin: 0 50px;
+  padding: 0 10px;
 }
 
-.order-card {
+@media (max-width: 768px) {
+  .container {
+    margin: 0;
+    padding: 0 14px;
+  }
+
+  .order-card {
+    padding: 14px 12px;
+  }
+}
+
+  .order-card {
   display: flex;
   flex-direction: column;
   padding: 20px 5px;

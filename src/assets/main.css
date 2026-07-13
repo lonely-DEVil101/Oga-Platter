@@ -18,3 +18,36 @@ body {
   font-family: 'DmSans';
   overflow-x: hidden;
 }
+
+/* Global container to keep content centered and responsive */
+.site-container, .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Utility responsive typography */
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+/* Make images responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* small devices adjustments */
+@media (max-width: 768px) {
+  .site-container, .container {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+}
