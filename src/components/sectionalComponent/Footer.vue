@@ -141,6 +141,7 @@ import { reactive } from 'vue'
         font-family: 'Bowlby One';
         line-height: 1;
         letter-spacing: 3px;
+        z-index: 0;
     }
 
 @media (max-width: 768px) {

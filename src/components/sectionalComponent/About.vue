@@ -81,9 +81,10 @@ That's why our meals are made to be fast, satisfying, and easy to enjoy whenever
         width: auto;
         max-width: 500px;
         height: auto;
+        z-index: -1;
     }
     img {
-        object-fit: cover;
+        /* object-fit: cover; */
         width: 100%;
         height: auto;
     }

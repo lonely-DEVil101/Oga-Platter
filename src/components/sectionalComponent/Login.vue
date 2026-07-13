@@ -1,5 +1,5 @@
 <template>
-    <div class="overlay">
+    <div @click.self="close" class="overlay">
         <div class="loginCard">
             <form @submit.prevent="submitLogin" >
             <h3>Login to Continue</h3>
@@ -128,4 +128,8 @@ const submitLogin = async () => {
         loading.value = false
     }
 }
+
+const close = () => {
+        emit('close')    
+    } 
 </script>

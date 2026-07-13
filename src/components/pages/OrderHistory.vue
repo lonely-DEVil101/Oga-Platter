@@ -66,8 +66,6 @@ const toggleId = (id) => {
 const shortId = (orderId) => {
   return `${orderId.slice(0,8)}...  `
 }
-
-console.log(orders.value)
 const toggleOrder = (id) => {
   orderStore.toggleOrder(id)
 }

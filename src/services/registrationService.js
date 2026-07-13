@@ -1,28 +1,3 @@
-// import api from './api'
-
-
-
-// export const customerRegistration = async (customerData) => {
-//     try {
-//         const payload = {
-//             phoneNumber: customerData.phoneNumber,
-//             customerName: customerData.customerName    
-//         }
-        
-//         const response = await api.post('/auth/register', payload )
-    
-        
-    
-//         //normalize response
-//         return {
-//             id: response.data.customerId,
-//             customerName: response.data.customerName,
-//         }
-//     } catch (error) {
-//         throw new Error(error.response?.data?.message || "Registration failed")
-//     }
-// }
-
 import api from './api'
 
 export const customerRegistration = async (customerData) => {
